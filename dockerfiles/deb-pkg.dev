@@ -1,0 +1,21 @@
+FROM golang:1.24.0-bookworm
+
+RUN apt-get update 
+RUN apt-get install -y dpkg-dev lintian 
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /pkg/fak
+WORKDIR /pkg/fak
+
+ARG VERSION=0.0.0
+
+RUN mkdir -p usr/share/keyrings/foks-archive-keyring usr/share/doc/foks-archive-keyring DEBIAN
+COPY build/debian.control-${VERSION} DEBIAN/control
+COPY build/debian.copyright usr/share/doc/foks-archive-keyring/copyright
+COPY build/changelog.debian-${VERSION}.gz usr/share/doc/foks-archive-keyring/changelog.gz
+
+WORKDIR /pkg
+
+RUN dpkg-deb --build fak foks-archive-keyring_${VERSION}.deb 
+RUN lintian --check --fail-on error foks-archive-keyring_${VERSION}.deb
+
