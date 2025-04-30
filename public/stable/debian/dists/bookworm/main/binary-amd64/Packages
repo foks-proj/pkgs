@@ -1,0 +1,17 @@
+Package: foks
+Architecture: amd64
+Version: 0.0.17
+Priority: optional
+Section: utils
+Maintainer: Maxwell Krohn <max@ne43.com>
+Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
+Filename: dists/bookworm/main/binary-amd64/foks_0.0.17_amd64.deb
+Size: 8448012
+MD5sum: ffc3e16e020430628dc8c4f676a8dd43
+SHA1: 8c66c53e982921edeb4d899f87bfbd8f8c17c674
+SHA256: ed9326d2889c2ac0bf00ad15caf197747839368a0169b4890333ff3e21123071
+SHA512: 45f7d445153d82b35f5416af26c65aabeeca7c3a311bd718d4271a270a45cbda4156c9ab66b7810bb69d21f5782289166c46f14f3c49c970d870e971293e87fc
+Description: Access the Federated Open Key Service (FOKS)
+ with this single CLI-application. Supplies signup, key management,
+ team management, KV-store put-get and also git remote helper.
+
