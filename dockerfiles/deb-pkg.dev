@@ -17,6 +17,6 @@ COPY public/keyrings/debian/v${VERSION}.gpg usr/share/keyrings/foks-archive-keyr
 
 WORKDIR /pkg
 
-RUN dpkg-deb --build fak foks-archive-keyring_${VERSION}.deb 
-RUN lintian --check --fail-on error foks-archive-keyring_${VERSION}.deb
+RUN dpkg-deb --build fak foks-archive-keyring_${VERSION}_all.deb 
+RUN lintian --check --fail-on error foks-archive-keyring_${VERSION}_all.deb
 

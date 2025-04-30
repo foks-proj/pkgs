@@ -97,10 +97,10 @@ build_deb() {
     docker create  \
         --name=${tmp} \
         ${name}
-    docker cp ${tmp}:/pkg/foks-archive-keyring_${version}.deb build/
+    docker cp ${tmp}:/pkg/foks-archive-keyring_${version}_all.deb build/
     docker rm ${tmp}
 
-    echo "Debian package foks-archive-keyring_${version}.deb created in build/"
+    echo "Debian package foks-archive-keyring_${version}_all.deb created in build/"
 }
 
 mkdir -p build

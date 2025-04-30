@@ -636,7 +636,7 @@ main() {
 			;;
 	esac
 
-	echo "Installation complete! Signup for foks by running `foks signup`"
+	echo "Installation complete! Signup for FOKS by running: foks signup"
 }
 
 main
