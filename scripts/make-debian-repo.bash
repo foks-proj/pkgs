@@ -41,12 +41,3 @@ gpg --default-key "${KEY}" \
     --output "${SITE}/dists/${VERSION}/Release.gpg" \
     --detach-sign "${SITE}/dists/${VERSION}/Release"
 
-
-(cd dists && \
-  ln -sf ${VERSION} stable && \
-  ln -sf ${VERSION} unstable && \
-  ln -sf $(VERSION) trixie && \
-  ln -sf $(VERSION) bullseye && \
-  ln -sf $(VERSION) buster && \
-  ln -sf $(VERSION) bookworm \
-)

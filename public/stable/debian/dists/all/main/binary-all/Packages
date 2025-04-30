@@ -4,7 +4,7 @@ Version: 1.0.0
 Priority: optional
 Section: misc
 Maintainer: Maxwell Krohn <max@ne43.com>
-Filename: ./dists/stable/main/binary-all/foks-archive-keyring_1.0.0.deb
+Filename: ./dists/all/main/binary-all/foks-archive-keyring_1.0.0.deb
 Size: 2284
 MD5sum: d037ecd5b3909196fb5ce7fad2fddc93
 SHA1: 75fbf4c9094f4927a71dece7357273a847f55dea
