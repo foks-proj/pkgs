@@ -11,14 +11,19 @@ cd public/stable/debian
 SITE=.
 
 KEY=0D05E803516C38D98490757074A9BF0FEB3838CC
-# regenerate Packages
-apt-ftparchive -o APT::FTPArchive::Index::Compression::gzip=false \
-    packages "${SITE}/dists/stable/main/binary-amd64" \
-  > "${SITE}/dists/stable/main/binary-amd64/Packages"
 
-gzip -9n -c \
-  "${SITE}/dists/stable/main/binary-amd64/Packages" \
-  > "${SITE}/dists/stable/main/binary-amd64/Packages.gz"
+for arch in {amd64,arm64,all}; do
+  # regenerate Packages
+  apt-ftparchive -o APT::FTPArchive::Index::Compression::gzip=false \
+    packages "${SITE}/dists/stable/main/binary-${arch}" \
+    > "${SITE}/dists/stable/main/binary-${arch}/Packages"
+
+  gzip -9n -c \
+    "${SITE}/dists/stable/main/binary-${arch}/Packages" \
+    > "${SITE}/dists/stable/main/binary-${arch}/Packages.gz"
+
+done
+
 
 # regenerate Release
 apt-ftparchive release "${SITE}/dists/stable" \
