@@ -1,0 +1,31 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Date: Wed, 30 Apr 2025 15:48:03 +0000
+MD5Sum:
+ 2bc53f0dfa790250ce8a0de1b4f785e8               38 Release
+ 03f0187981652850b0f6e84a03683e24              745 main/binary-amd64/Packages
+ 72d00bc6e76d173bdeb26a7e3a8a9153              549 main/binary-amd64/Packages.gz
+ 667743d9729e12000a5d51b30bf4e32e              743 main/binary-arm64/Packages
+SHA1:
+ 57242c2f63d9432f7cf3da62b6a35d9f95da4e9f               38 Release
+ 852e08131b0c3a08ef58437c24ac3f330a4db7c9              745 main/binary-amd64/Packages
+ f576844549b0ae1aeff321c4aefcc8dcef8b8933              549 main/binary-amd64/Packages.gz
+ 69616c7d94321d5b1c800dda02ba180d1ae2022c              743 main/binary-arm64/Packages
+SHA256:
+ b7374bf7443ae15a56115f3a764f08743cdd2e8aa77283c2abd2ad5483eb6b62               38 Release
+ a7a674a5421f34df3c9214fabde903d1c526af5cdacaa8003225082c1fbbaf71              745 main/binary-amd64/Packages
+ f909b849d5852c76333b64ad21332082548321d89622ed06c4be9ba7fd7b2a4e              549 main/binary-amd64/Packages.gz
+ 4f150922570e98b0eee50f82736e562d7cbd18141ed4c002662aa60b84c9eb58              743 main/binary-arm64/Packages
+SHA512:
+ 3ec375f742629d3944941efe7c084125035dce4ae128e94a9acb5c23b7cbd090f1fe60fe67066ed977498975bf0a79a90d8b48eba6eebc6441788f3937a3ffd2               38 Release
+ 7eea7ba98b27ba92f9b21d4b14010aa56d6be7578b90882847ab018adc72b7fcbd6ccab5c637d23c3ae2ad455f2fc288f106e070f53fc3c0272352c694530585              745 main/binary-amd64/Packages
+ 04c07d32d5969611383de954808da9dada5c73bcdc4dbfff7f1cb1034f0040cb434c4bb56a7826cd3de03174393265f30fae0ea38b88b0b1745f539c0535111a              549 main/binary-amd64/Packages.gz
+ e2d4b9bc26c898f5d7433a157d8a884ea34f01bdf9b445924ca0307059d411faa25e985498a94810177031705bf0066a069ba517af936a5f7e1b251bdddf9c2f              743 main/binary-arm64/Packages
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYIAB0WIQQNBegDUWw42YSQdXB0qb8P6zg4zAUCaBJGNQAKCRB0qb8P6zg4
+zFReAQCxpvCuPU6KgslXx/BWJUFemR+/qr5ozFx2rVY/YMpkhgEA+mz2ocaZKYep
+ragG9xkahoL0c9Uv7rMWTjVASYlKoAs=
+=p+LE
+-----END PGP SIGNATURE-----
