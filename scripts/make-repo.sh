@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+cd public/stable/debian
+
 SITE=.
+
 KEY=0D05E803516C38D98490757074A9BF0FEB3838CC
 # regenerate Packages
 apt-ftparchive -o APT::FTPArchive::Index::Compression::gzip=false \
