@@ -1,8 +1,4 @@
 #!/bin/sh
-#
-# Copyright (c) 2025 ne43, Inc.
-# Forked from: https://tailscale.com/install.sh 
-#
 # Copyright (c) Tailscale Inc & AUTHORS
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -31,10 +27,10 @@ main() {
 	TRACK="${TRACK:-stable}"
 
 	case "$TRACK" in
-		stable)
+		stable|unstable)
 			;;
 		*)
-			echo "unsupported track $TRACK -- we currently only support stable"
+			echo "unsupported track $TRACK"
 			exit 1
 			;;
 	esac
@@ -279,8 +275,9 @@ main() {
 				PACKAGETYPE="apk"
 				;;
 			nixos)
-				echo "nixos support is currently TODO"
+				echo "Please add Tailscale to your NixOS configuration directly:"
 				echo
+				echo "services.tailscale.enable = true;"
 				exit 1
 				;;
 			void)
@@ -361,7 +358,7 @@ main() {
 		exit 1
 	fi
 
-	TEST_URL="https://pkgs.foks.pub/"
+	TEST_URL="https://pkgs.tailscale.com/"
 	RC=0
 	TEST_OUT=$($CURL "$TEST_URL" 2>&1) || RC=$?
 	if [ $RC != 0 ]; then
@@ -377,11 +374,9 @@ main() {
 	OS_UNSUPPORTED=
 	case "$OS" in
 		ubuntu|debian|raspbian|centos|oracle|rhel|amazon-linux|opensuse|photon)
-
-			# Upstream, we did this. For now, don't...
 			# Check with the package server whether a given version is supported.
-			#URL="https://pkgs.tailscale.com/$TRACK/$OS/$VERSION/installer-supported"
-			#$CURL "$URL" 2> /dev/null | grep -q OK || OS_UNSUPPORTED=1
+			URL="https://pkgs.tailscale.com/$TRACK/$OS/$VERSION/installer-supported"
+			$CURL "$URL" 2> /dev/null | grep -q OK || OS_UNSUPPORTED=1
 			;;
 		fedora)
 			# All versions supported, no version checking required.
@@ -394,6 +389,7 @@ main() {
 			;;
 		alpine)
 			# All versions supported, no version checking needed.
+			# TODO: is that true? When was tailscale packaged?
 			;;
 		void)
 			# Rolling release, no version checking needed.
@@ -423,19 +419,12 @@ main() {
 			OS_UNSUPPORTED=1
 			;;
 	esac
-
-	# For now, only support debian
-	if [ "$OS" != "debian" ]; then
-		OS_UNSUPPORTED=1
-	fi
-
-
 	if [ "$OS_UNSUPPORTED" = "1" ]; then
 		case "$OS" in
 			other-linux)
 				echo "Couldn't determine what kind of Linux is running."
 				echo "You could try the static binaries at:"
-				echo "https://pkgs.foks.pub/$TRACK/#static"
+				echo "https://pkgs.tailscale.com/$TRACK/#static"
 				;;
 			"")
 				echo "Couldn't determine what operating system you're running."
@@ -445,7 +434,7 @@ main() {
 				;;
 		esac
 		echo
-		echo "If you'd like us to support your system better, please email support@ne43.com"
+		echo "If you'd like us to support your system better, please email support@tailscale.com"
 		echo "and tell us what OS you're running."
 		echo
 		echo "Please include the following information we gathered from your system:"
@@ -492,7 +481,7 @@ main() {
 	# Step 4: run the installation.
 	OSVERSION="$OS"
 	[ "$VERSION" != "" ] && OSVERSION="$OSVERSION $VERSION"
-	echo "Installing foks for $OSVERSION, using method $PACKAGETYPE"
+	echo "Installing Tailscale for $OSVERSION, using method $PACKAGETYPE"
 	case "$PACKAGETYPE" in
 		apt)
 			export DEBIAN_FRONTEND=noninteractive
@@ -505,22 +494,23 @@ main() {
 			$SUDO mkdir -p --mode=0755 /usr/share/keyrings
 			case "$APT_KEY_TYPE" in
 				legacy)
-					# TODO -- use the same legacy system that tailscale does
-					echo "Legacy keyring installation method is not yet supported."
-					exit 1
-					#$CURL "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION.asc" | $SUDO apt-key add -
-					#$CURL "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION.list" | $SUDO tee /etc/apt/sources.list.d/tailscale.list
-					#$SUDO chmod 0644 /etc/apt/sources.list.d/tailscale.list
+					$CURL "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION.asc" | $SUDO apt-key add -
+					$CURL "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION.list" | $SUDO tee /etc/apt/sources.list.d/tailscale.list
+					$SUDO chmod 0644 /etc/apt/sources.list.d/tailscale.list
 				;;
 				keyring)
-					$CURL "https://pkgs.foks.pub/$TRACK/$OS/$VERSION.noarmor.gpg" | $SUDO tee /usr/share/keyrings/foks-archive-keyring.gpg >/dev/null
-					$SUDO chmod 0644 /usr/share/keyrings/foks-archive-keyring.gpg
-					$CURL "https://pkgs.foks.pub/$TRACK/$OS/$VERSION.foks-keyring.list" | $SUDO tee /etc/apt/sources.list.d/foks.list
-					$SUDO chmod 0644 /etc/apt/sources.list.d/foks.list
+					$CURL "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION.noarmor.gpg" | $SUDO tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+					$SUDO chmod 0644 /usr/share/keyrings/tailscale-archive-keyring.gpg
+					$CURL "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION.tailscale-keyring.list" | $SUDO tee /etc/apt/sources.list.d/tailscale.list
+					$SUDO chmod 0644 /etc/apt/sources.list.d/tailscale.list
 				;;
 			esac
 			$SUDO apt-get update
-			$SUDO apt-get install -y foks foks-archive-keyring
+			$SUDO apt-get install -y tailscale tailscale-archive-keyring
+			if [ "$APT_SYSTEMCTL_START" = "true" ]; then
+				$SUDO systemctl enable --now tailscaled
+				$SUDO systemctl start tailscaled
+			fi
 			set +x
 		;;
 		yum)
@@ -636,7 +626,13 @@ main() {
 			;;
 	esac
 
-	echo "Installation complete! Signup for foks by running `foks signup`"
+	echo "Installation complete! Log in to start using Tailscale by running:"
+	echo
+	if [ -z "$SUDO" ]; then
+		echo "tailscale up"
+	else
+		echo "$SUDO tailscale up"
+	fi
 }
 
 main

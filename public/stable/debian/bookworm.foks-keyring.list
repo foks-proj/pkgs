@@ -1,0 +1,2 @@
+# Foks packages for debian bookworm
+deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/debian bookworm main

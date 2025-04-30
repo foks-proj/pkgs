@@ -13,7 +13,7 @@ RUN mkdir -p usr/share/{keyrings,doc}/foks-archive-keyring DEBIAN
 COPY build/debian.control-${VERSION} DEBIAN/control
 COPY build/debian.copyright usr/share/doc/foks-archive-keyring/copyright
 COPY build/debian.changelog-${VERSION}.gz usr/share/doc/foks-archive-keyring/changelog.gz
-COPY keyrings/debian/v${VERSION}.gpg usr/share/keyrings/foks-archive-keyring.gpg
+COPY public/keyrings/debian/v${VERSION}.gpg usr/share/keyrings/foks-archive-keyring.gpg
 
 WORKDIR /pkg
 
