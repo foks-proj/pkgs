@@ -13,3 +13,5 @@
 /stable/debian/stable.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
 /stable/debian/unstable.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
 /stable/debian/testing.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
+
+/b.html /a.html 302
