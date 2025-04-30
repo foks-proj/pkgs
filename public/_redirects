@@ -1,0 +1,15 @@
+/stable/debian/dists/bookworm/* /stable/debian/dists/all/:splat 302
+/stable/debian/dists/trixie/* /stable/debian/dists/all/:splat 302
+/stable/debian/dists/bullseye/* /stable/debian/dists/all/:splat 302
+/stable/debian/dists/buster/* /stable/debian/dists/all/:splat 302
+/stable/debian/dists/unstable/* /stable/debian/dists/all/:splat 302
+/stable/debian/dists/stable/* /stable/debian/dists/all/:splat 302
+/stable/debian/dists/testing/* /stable/debian/dists/all/:splat 302
+
+/stable/debian/bookworm.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
+/stable/debian/trixie.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
+/stable/debian/buster.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
+/stable/debian/bullseye.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
+/stable/debian/stable.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
+/stable/debian/unstable.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
+/stable/debian/testing.noarmor.gpg  /keyrings/debian/v1.0.0.gpg 302
