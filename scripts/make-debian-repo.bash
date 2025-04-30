@@ -11,32 +11,42 @@ cd public/stable/debian
 SITE=.
 
 KEY=0D05E803516C38D98490757074A9BF0FEB3838CC
+VERSION=all
 
 for arch in {amd64,arm64,all}; do
   # regenerate Packages
   apt-ftparchive -o APT::FTPArchive::Index::Compression::gzip=false \
-    packages "${SITE}/dists/stable/main/binary-${arch}" \
-    > "${SITE}/dists/stable/main/binary-${arch}/Packages"
+    packages "${SITE}/dists/${VERSION}/main/binary-${arch}" \
+    > "${SITE}/dists/${VERSION}/main/binary-${arch}/Packages"
 
   gzip -9n -c \
-    "${SITE}/dists/stable/main/binary-${arch}/Packages" \
-    > "${SITE}/dists/stable/main/binary-${arch}/Packages.gz"
+    "${SITE}/dists/${VERSION}/main/binary-${arch}/Packages" \
+    > "${SITE}/dists/${VERSION}/main/binary-${arch}/Packages.gz"
 
 done
 
 
 # regenerate Release
-apt-ftparchive release "${SITE}/dists/stable" \
-  > "${SITE}/dists/stable/Release"
+apt-ftparchive release "${SITE}/dists/${VERSION}" \
+  > "${SITE}/dists/${VERSION}/Release"
 
 # sign Release → InRelease & Release.gpg
-rm ${SITE}/dists/stable/InRelease
+rm ${SITE}/dists/${VERSION}/InRelease
 gpg --default-key "${KEY}" \
-    --clearsign -o "${SITE}/dists/stable/InRelease" \
-    "${SITE}/dists/stable/Release"
+    --clearsign -o "${SITE}/dists/${VERSION}/InRelease" \
+    "${SITE}/dists/${VERSION}/Release"
 
-rm ${SITE}/dists/stable/Release.gpg
+rm ${SITE}/dists/${VERSION}/Release.gpg
 gpg --default-key "${KEY}" \
-    --output "${SITE}/dists/stable/Release.gpg" \
-    --detach-sign "${SITE}/dists/stable/Release"
+    --output "${SITE}/dists/${VERSION}/Release.gpg" \
+    --detach-sign "${SITE}/dists/${VERSION}/Release"
 
+
+(cd dists && \
+  ln -sf ${VERSION} stable && \
+  ln -sf ${VERSION} unstable && \
+  ln -sf $(VERSION) trixie && \
+  ln -sf $(VERSION) bullseye && \
+  ln -sf $(VERSION) buster && \
+  ln -sf $(VERSION) bookworm \
+)
