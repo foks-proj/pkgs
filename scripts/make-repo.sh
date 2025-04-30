@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if [ ! -f ".top" ]; then 
+	echo "must run script from top directory"
+	exit 1
+fi
+
 cd public/stable/debian
 
 SITE=.
