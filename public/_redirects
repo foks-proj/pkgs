@@ -1,4 +1,3 @@
-/stable/debian/dists/bookworm/* /stable/debian/dists/all/:splat 302
 /stable/debian/dists/trixie/* /stable/debian/dists/all/:splat 302
 /stable/debian/dists/bullseye/* /stable/debian/dists/all/:splat 302
 /stable/debian/dists/buster/* /stable/debian/dists/all/:splat 302
