@@ -9,10 +9,11 @@ WORKDIR /pkg/fak
 
 ARG VERSION=0.0.0
 
-RUN mkdir -p usr/share/keyrings/foks-archive-keyring usr/share/doc/foks-archive-keyring DEBIAN
+RUN mkdir -p usr/share/{keyrings,doc}/foks-archive-keyring DEBIAN
 COPY build/debian.control-${VERSION} DEBIAN/control
 COPY build/debian.copyright usr/share/doc/foks-archive-keyring/copyright
-COPY build/changelog.debian-${VERSION}.gz usr/share/doc/foks-archive-keyring/changelog.gz
+COPY build/debian.changelog-${VERSION}.gz usr/share/doc/foks-archive-keyring/changelog.gz
+COPY keyrings/debian/v${VERSION}.gpg usr/share/keyrings/foks-archive-keyring.gpg
 
 WORKDIR /pkg
 
