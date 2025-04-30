@@ -25,10 +25,12 @@ apt-ftparchive release "${SITE}/dists/stable" \
   > "${SITE}/dists/stable/Release"
 
 # sign Release → InRelease & Release.gpg
+rm ${SITE}/dists/stable/InRelease
 gpg --default-key "${KEY}" \
     --clearsign -o "${SITE}/dists/stable/InRelease" \
     "${SITE}/dists/stable/Release"
 
+rm ${SITE}/dists/stable/Release.gpg
 gpg --default-key "${KEY}" \
     --output "${SITE}/dists/stable/Release.gpg" \
     --detach-sign "${SITE}/dists/stable/Release"
