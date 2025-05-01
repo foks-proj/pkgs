@@ -471,9 +471,11 @@ main() {
 	# how.
 	CAN_ROOT=
 	SUDO=
+	IS_ROOT=0
 	if [ "$(id -u)" = 0 ]; then
 		CAN_ROOT=1
 		SUDO=""
+		IS_ROOT=1
 	elif type sudo >/dev/null; then
 		CAN_ROOT=1
 		SUDO="sudo"
@@ -636,6 +638,12 @@ main() {
 			;;
 	esac
 
+	if [ $IS_ROOT -eq 0 ]; then
+		echo "Starting up the foks background agent via systemd"
+		foks ctl start
+	else
+		echo "Not startup foks agent, since user is root; do so via: foks ctl start"
+	fi
 	echo "Installation complete! Signup for FOKS by running: foks signup"
 }
 
