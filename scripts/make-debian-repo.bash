@@ -6,17 +6,14 @@ if [ ! -f ".top" ]; then
 	exit 1
 fi
 
-cd public/stable/debian
-
 KEY=0D05E803516C38D98490757074A9BF0FEB3838CC
 
 arches=(amd64 arm64 all)
 all_arches_string="${arches[*]}"
-versions=(bookworm bullseye buster trixie)
 
 link_to() {
   local arch=$1
-  for f in $(ls -1 ../../../../pool/main/f/*_${arch}.deb); do
+  for f in $(ls -1 ../../../../../pool/main/f/*_${arch}.deb); do
     ln -sf $f
   done
 }
@@ -83,6 +80,20 @@ EOF
   ln -sf ../../keyrings/debian/v1.0.0.gpg ${version}.noarmor.gpg
 }
 
-for version in "${versions[@]}"; do
-  do_version "${version}"
-done
+do_os() {
+  local os=$1
+  shift
+  local versions=( "$@" )
+  mkdir -p public/stable/$os
+  cd public/stable/$os
+
+  for version in "${versions[@]}"; do
+    do_version "${version}"
+  done
+}
+
+(do_os debian \
+	bookworm bullseye buster trixie)
+
+(do_os ubuntu \
+	plucky oracular noble jammy focal bionic xenial)

@@ -1,0 +1,2 @@
+# Foks packages for debian plucky
+deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/debian plucky main
