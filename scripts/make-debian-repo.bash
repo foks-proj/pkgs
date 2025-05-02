@@ -86,13 +86,17 @@ do_os() {
   local versions=( "$@" )
   dir=public/stable/$os
   mkdir -p ${dir}
-  rm -rf ${dir}/pool
-  cp -r pool ${dir}/pool
   cd ${dir}
+
+  rm -rf ./pool
+  cp -r ../../pool pool
 
   for version in "${versions[@]}"; do
     do_version "${version}"
   done
+
+  rm -rf ./pool
+  ln -sf ../../pool
 }
 
 (do_os debian \

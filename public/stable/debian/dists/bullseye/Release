@@ -1,12 +1,12 @@
 Architectures: amd64 arm64 all
 Codename: bullseye
 Components: main
-Date: Fri, 02 May 2025 14:33:18 +0000
+Date: Fri, 02 May 2025 14:39:09 +0000
 Description: FOKS packages (see https://foks.pub)
 Label: foks
 Origin: foks
 MD5Sum:
- ccd0607e1e4bc46b5c1a33810105423c              180 Release
+ 5f4e69813d1850f3b3f5d7d38d990bbc              180 Release
  fc09e608fc7c6625ac294ba3ddf4168c              732 main/binary-all/Packages
  3e72715c46b3edf7f315552d0dd44697              503 main/binary-all/Packages.gz
  372531fd3e98d07cf307422ac930293d              745 main/binary-amd64/Packages
@@ -14,7 +14,7 @@ MD5Sum:
  983c489f774cc6872975819f99f37bd9              745 main/binary-arm64/Packages
  5b8b635f835014a5002ae1dc0cff05e1              547 main/binary-arm64/Packages.gz
 SHA1:
- af280ed3c9fa3f2346500dd7a42d66b6efbba9ea              180 Release
+ 59dd8fa97ce01793e5e03b1e223e9a56926240f6              180 Release
  03ae09d177fd07b297c5191b19850a6340851ee5              732 main/binary-all/Packages
  092a202a5f20871c353b34165440027c6530f4a9              503 main/binary-all/Packages.gz
  286a74a5b4607a64339cef3822301dc4827d741b              745 main/binary-amd64/Packages
@@ -22,7 +22,7 @@ SHA1:
  dddd67de028259289dffb07d378b91208a5a6633              745 main/binary-arm64/Packages
  a4107811708e07f8ebdbca0ef6a24dd70000799e              547 main/binary-arm64/Packages.gz
 SHA256:
- b0274b652dc8d3f59559a163ca0424ae1deb3897f3903af1c8340d33cb935260              180 Release
+ ca30fffe79b1d66449fdfec9c7bf81dd5a104d0db523cc8533a49d70d9fbcf72              180 Release
  df83507e14e75abfae253d61044a7ab1ae5b7a748bbeeda9e8fb1796ef3623e0              732 main/binary-all/Packages
  a5b152f18ee8c636320ba9542b9a84552f74673f288fe26d266147e0bfeb550a              503 main/binary-all/Packages.gz
  372b4a37af8ce442bab7ff322f919a0f91ce524a0b50d36ad0f20c2606dd6962              745 main/binary-amd64/Packages
@@ -30,7 +30,7 @@ SHA256:
  85a19ccf80f98333856f7d957f71195e2b33fc836be77eaeefe04b6d0064221c              745 main/binary-arm64/Packages
  d58f217b30763532556a91957db90b11b16eda4c4779ddc8553904b1572bdcb5              547 main/binary-arm64/Packages.gz
 SHA512:
- 39ea95863156aa632c12bd4a518b58d59818f9f01bed4dc847448ff3d261afe3bdb92993956a38556e7580d89aa17d3a1a6ba9a05db3368d36630572e25465d8              180 Release
+ 4d8f6fbb77c87f10a2a272215ee3bd640d0db415de1fdd741058b0bfa58f6eb7ac056f6956f78ee51b23839864d0ccff549365eddb0521a4dd1b09be410e8bfd              180 Release
  77c37d426a12bad3144fffa36648a013022a1ae57f978ba10268ecab4363459efe0e65c0300e37183ffa391f700e5ed77c3548e8e7070ba12f24729f55820c79              732 main/binary-all/Packages
  2c0c9c90fd62a93cf919bf5731fbbd56928288cc27f08a8c0c14f3ddd6bd664f1ea8247500cd6146b53959aa52a0d43dce47b9d49f626168f6d063519ae5e7db              503 main/binary-all/Packages.gz
  b6ccb47958670fe3d8ec02ef2783bfa37024408d93d02198c697ebddf543eb4c6f6dc0a0185f6ae90ae152fb16ea8dcfa699531e45f6bac89f984e5ce205a013              745 main/binary-amd64/Packages
