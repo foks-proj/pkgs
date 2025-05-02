@@ -1,2 +1,2 @@
-# Foks packages for debian focal
-deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/debian focal main
+# Foks packages for ubuntu focal
+deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/ubuntu focal main

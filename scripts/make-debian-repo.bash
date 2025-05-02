@@ -44,7 +44,8 @@ do_version_arch() {
 }
 
 do_version() {
-  local version=$1
+  local os=$1
+  local version=$2
 
   for arch in "${arches[@]}"; do
     do_version_arch "${version}" "${arch}"
@@ -74,8 +75,8 @@ do_version() {
     --detach-sign "dists/${version}/Release"
 
   cat <<EOF > ${version}.foks-keyring.list
-# Foks packages for debian ${version}
-deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/debian ${version} main
+# Foks packages for ${os} ${version}
+deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/${os} ${version} main
 EOF
   ln -sf ../../keyrings/debian/v1.0.0.gpg ${version}.noarmor.gpg
 }
@@ -97,7 +98,7 @@ do_os() {
   cp -r ../../pool pool
 
   for version in "${versions[@]}"; do
-    do_version "${version}"
+    do_version "${os}" "${version}"
   done
 
   rm -rf ./pool

@@ -1,2 +1,2 @@
-# Foks packages for debian noble
-deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/debian noble main
+# Foks packages for ubuntu noble
+deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/ubuntu noble main
