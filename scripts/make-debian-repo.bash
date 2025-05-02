@@ -13,7 +13,7 @@ all_arches_string="${arches[*]}"
 
 link_to() {
   local arch=$1
-  for f in $(ls -1 ../../../../../pool/main/f/*_${arch}.deb); do
+  for f in $(ls -1 ../../../../pool/main/f/*_${arch}.deb); do
     ln -sf $f
   done
 }
@@ -84,8 +84,11 @@ do_os() {
   local os=$1
   shift
   local versions=( "$@" )
-  mkdir -p public/stable/$os
-  cd public/stable/$os
+  dir=public/stable/$os
+  mkdir -p ${dir}
+  rm -rf ${dir}/pool
+  cp -r pool ${dir}/pool
+  cd ${dir}
 
   for version in "${versions[@]}"; do
     do_version "${version}"

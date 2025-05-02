@@ -5,7 +5,7 @@ Priority: optional
 Section: utils
 Maintainer: Maxwell Krohn <max@ne43.com>
 Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
-Filename: /home/max/src/pkgs/public/stable/pool/main/f/foks_0.0.17_arm64.deb
+Filename: dists/jammy/main/binary-arm64/foks_0.0.17_arm64.deb
 Size: 7313580
 MD5sum: e9a552c1ed8ae07c254ee069479fa79f
 SHA1: f439d049e73fab94201f38850b21d3e362df65f2
