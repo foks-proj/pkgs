@@ -425,7 +425,7 @@ main() {
 	esac
 
 	# For now, only support debian
-	if [ "$OS" != "debian" ]; then
+	if [ "$OS" != "debian" -a "$OS" != "ubuntu" ]; then
 		OS_UNSUPPORTED=1
 	fi
 

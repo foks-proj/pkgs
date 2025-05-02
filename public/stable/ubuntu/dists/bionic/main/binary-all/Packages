@@ -1,0 +1,17 @@
+Package: foks-archive-keyring
+Architecture: all
+Version: 1.0.0
+Priority: optional
+Section: misc
+Maintainer: Maxwell Krohn <max@ne43.com>
+Filename: dists/bionic/main/binary-all/foks-archive-keyring_1.0.0_all.deb
+Size: 2284
+MD5sum: d037ecd5b3909196fb5ce7fad2fddc93
+SHA1: 75fbf4c9094f4927a71dece7357273a847f55dea
+SHA256: 4b788266c4251cdc44a7740dab02a1499048e49cce8e8a0298d1b71206e3c5fb
+SHA512: 2e3e79363bc39b3d4465587fb285378b97ee16b7f9fb4f7eac6fb23f3323316f88e67bb26470fef77661f4566050a0ae746f02fb3342cf423fd73fbd497c13ca
+Description: Keyring for the foks APT repository
+ This package provides the public key used to verify packages
+ in the fos apt repository.  It installs the key to
+ /usr/share/keyrings/foks-archive-keyring.gpg
+
