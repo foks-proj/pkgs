@@ -89,6 +89,11 @@ do_os() {
   cd ${dir}
 
   rm -rf ./pool
+
+  # the apt-ftparchive tool is **fanatical** about the directory structure being just like
+  # so, without any symlinks. so copy it into place temporarily, and then below,
+  # delete the copy and symlink to the real one. our serving solution (cloudflare)
+  # seems to be more reasonable about symlinks and hides the structure from the remote user.
   cp -r ../../pool pool
 
   for version in "${versions[@]}"; do
