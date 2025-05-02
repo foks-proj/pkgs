@@ -1,2 +1,2 @@
-# Foks packages for debian xenial
-deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/debian xenial main
+# Foks packages for ubuntu xenial
+deb [signed-by=/usr/share/keyrings/foks-archive-keyring.gpg] https://pkgs.foks.pub/stable/ubuntu xenial main
