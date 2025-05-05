@@ -4,6 +4,8 @@
 
 # This script builds a debian package for foks via docker, so should work on most platforms.
 
+set -euo pipefail
+
 
 usage() {
     echo "Usage: $0"
@@ -19,7 +21,7 @@ if [ ! -f ".top" ]; then
     exit 1
 fi
 
-vversion=$(git describe --tags --abbrev=0)
+vversion=$(git tag --list | grep -E '^v[0-9]+\.' | sort -V | tail -1)
 version=$(echo $vversion | sed 's/^v//')
 
 if [ -z "$version" ]; then
