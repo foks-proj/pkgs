@@ -564,10 +564,10 @@ main() {
 			set -x
 			if [ "$DNF_VERSION" = "3" ]; then
 				$SUDO dnf install -y 'dnf-command(config-manager)'
-				$SUDO dnf config-manager --add-repo "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION/foks.repo"
+				$SUDO dnf config-manager --add-repo "https://pkgs.foks.pub/$TRACK/$OS/$VERSION/foks.repo"
 			elif [ "$DNF_VERSION" = "5" ]; then
 				# Already installed config-manager, above.
-				$SUDO dnf config-manager addrepo --from-repofile="https://pkgs.tailscale.com/$TRACK/$OS/$VERSION/foks.repo"
+				$SUDO dnf config-manager addrepo --from-repofile="https://pkgs.foks.pub/$TRACK/$OS/$VERSION/foks.repo"
 			else
 				echo "unexpected: unknown dnf version $DNF_VERSION"
 				exit 1
