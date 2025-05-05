@@ -1,4 +1,4 @@
-[tailscale-stable]
+[foks-stable]
 name=foks stable
 baseurl=https://pkgs.foks.pub/stable/fedora/$basearch
 enabled=1
