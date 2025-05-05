@@ -6,3 +6,12 @@ type=rpm
 repo_gpgcheck=1
 gpgcheck=1
 gpgkey=https://pkgs.foks.pub/stable/fedora/repo.gpg
+
+[foks-source]
+name=foks source
+baseurl=https://pkgs.foks.pub/stable/fedora/SRPMS
+enabled=0
+type=rpm
+repo_gpgcheck=1
+gpgcheck=1
+gpgkey=https://pkgs.foks.pub/source/fedora/repo.gpg
