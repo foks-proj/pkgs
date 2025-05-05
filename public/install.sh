@@ -424,11 +424,14 @@ main() {
 			;;
 	esac
 
-	# For now, only support debian
-	if [ "$OS" != "debian" -a "$OS" != "ubuntu" ]; then
-		OS_UNSUPPORTED=1
-	fi
-
+	# For now, only support debian, ubuntu and fedora. we will eventually add others
+	case "$OS" in 
+		ubuntu|debian|fedora)
+			;;
+		*)
+			OS_UNSUPPORTED=1
+			;;
+	esac
 
 	if [ "$OS_UNSUPPORTED" = "1" ]; then
 		case "$OS" in
