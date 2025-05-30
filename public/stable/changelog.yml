@@ -2,6 +2,31 @@ project: foks
 maintaner: Maxwell Krohn <max@ne43.com>
 
 changelog:
+  - version: 0.0.20
+    urgency: low
+    stable: false
+    date: 2025-05-30 10:00:00 -0400
+    changes:
+      - desc: capture stdout and stderr to log file on macos/launchd
+        closes: ["#75"]
+      - desc: Allow m/0's to load adjacent team members (previously it was only admins and above). This improves the output of `team ls` for non-admins
+        closes: ["#72"]
+      - desc: Better error message for confusing case; team admin or above needed to make KV root
+        closes: ["#67"]
+      - desc: Actually try to rewrite the git-bash-mangled paths, rather than just warn; easy to backout if it's a flop
+        closes: ["#62"]
+      - desc: Online documentation for dealing with weird path translation in git bash
+        closes: ["#60"]
+      - desc: Remove old version clash warning
+        closes: ["#48"]
+      - desc: Retire TypeScript-based snowpack compiler; move over to Go-based compiler
+        closes : []
+      - desc: Fix panic in `team add` from failing to load a user by username a second time
+        closes: ["#52"]
+      - desc: Fix bug in kv-store big objects as a team
+        closes: ["#58"]
+      - desc: Clean up leaky debug in KV mkroot 
+        closes: ["#57"]
   - version: 0.0.19
     urgency: low
     stable: false
