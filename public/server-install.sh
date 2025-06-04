@@ -2,6 +2,11 @@
 
 set -eu
 
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <hostname>"
+    exit 1
+fi
+hostname=$1
 
 main() {
 
@@ -39,6 +44,7 @@ main() {
         gunzip -c > ./foks-tool
 
     chmod +x ./foks-tool
-    ./foks-tool standup "$@"
-
+    ./foks-tool standup  --hostname "$hostname"
 }
+
+main
