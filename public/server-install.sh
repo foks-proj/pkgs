@@ -44,7 +44,7 @@ main() {
         gunzip -c > ./foks-tool
 
     chmod +x ./foks-tool
-    ./foks-tool standup  --hostname "$hostname"
+    ./foks-tool standup --interactive
 }
 
 main
