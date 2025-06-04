@@ -34,7 +34,7 @@ main() {
             grep version | head -1 | cut -d: -f2 | tr -d '[:space:]'
     )
 
-    $CURL https://github.com/foks-proj/go-foks/releases/download/${latest}/foks-tool.linux.${arch}.gz | \
+    $CURL https://github.com/foks-proj/go-foks/releases/download/v${latest}/foks-tool.linux.${arch}.gz | \
         gunzip -c > ./foks-tool
 
     chmod +x ./foks-tool
