@@ -31,7 +31,7 @@ main() {
 
     latest=$(
         $CURL https://pkgs.foks.pub/stable/changelog.yml | \
-            grep version | head -1 | cut -d: -f2
+            grep version | head -1 | cut -d: -f2 | tr -d '[:space:]'
     )
 
     $CURL https://github.com/foks-proj/go-foks/releases/download/${latest}/foks-tool.linux.${arch}.gz | \
