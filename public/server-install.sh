@@ -2,12 +2,6 @@
 
 set -eu
 
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <hostname>"
-    exit 1
-fi
-hostname=$1
-
 main() {
 
     uarch=$(uname -m)
