@@ -87,16 +87,21 @@ main() {
         fi
         if [ ! -f ${install_dir}/git-remote-foks ]; then
                 echo "Creating symlink for git-remote-foks..."
-                $SUDO ln -sf ${install_dir}/foks ${install_dir}/git-remote-foks
+                (cd ${install_dir} && $SUDO ln -s foks git-remote-foks)
                 if [ $? -ne 0 ]; then
                         echo "Failed to create symlink for git-remote-foks. Please check your permissions"
                         exit 1
                 fi
         fi
 
-        echo "foks installation complete. You can now run foks from anywhere."
-        echo "To verify the installation, run: foks --version"
+        # Check if systemd is available and start the foks service
+        if [ "$(ps -p 1 -o comm=)" = systemd ]; then
+                echo 'Starting foks service (you can stop it with `foks ctl stop`)...'
+                ${install_dir}/foks ctl start
+        fi
 
+        echo "foks installation complete. You can now run foks from anywhere."
+        echo "To verify the installation, run: foks version -v"
 }
 
 main
