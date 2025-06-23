@@ -1,6 +1,6 @@
 #!/bin/sh
 
-install() {
+run() {
 
 	version=0.0.20
 
