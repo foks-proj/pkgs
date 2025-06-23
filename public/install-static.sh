@@ -1,6 +1,8 @@
 #!/bin/sh
 
-run() {
+set -eu
+
+main() {
 
 	version=0.0.20
 
@@ -78,13 +80,23 @@ run() {
                 exit 1
         fi
         echo "Setting executable permissions for foks..."
-        sudo chmod +x ${install_dir}/foks
+        $SUDO chmod +x ${install_dir}/foks
         if [ $? -ne 0 ]; then
                 echo "Failed to set executable permissions for foks. Please check your permissions."
                 exit 1
         fi
+        if [ ! -f ${install_dir}/git-remote-foks ]; then
+                echo "Creating symlink for git-remote-foks..."
+                $SUDO ln -sf ${install_dir}/foks ${install_dir}/git-remote-foks
+                if [ $? -ne 0 ]; then
+                        echo "Failed to create symlink for git-remote-foks. Please check your permissions"
+                        exit 1
+                fi
+        fi
+
         echo "foks installation complete. You can now run foks from anywhere."
         echo "To verify the installation, run: foks --version"
+
 }
 
-run
+main

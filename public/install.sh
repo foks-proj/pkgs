@@ -574,65 +574,11 @@ main() {
 			fi
 			$SUDO dnf install -y foks
 			set +x
-		;;
-		tdnf)
-			set -x
-			curl -fsSL "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION/tailscale.repo" > /etc/yum.repos.d/tailscale.repo
-			$SUDO tdnf install -y tailscale
-			$SUDO systemctl enable --now tailscaled
-			set +x
-		;;
-		zypper)
-			set -x
-			$SUDO rpm --import "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION/repo.gpg"
-			$SUDO zypper --non-interactive ar -g -r "https://pkgs.tailscale.com/$TRACK/$OS/$VERSION/tailscale.repo"
-			$SUDO zypper --non-interactive --gpg-auto-import-keys refresh
-			$SUDO zypper --non-interactive install tailscale
-			$SUDO systemctl enable --now tailscaled
-			set +x
 			;;
-		pacman)
-			set -x
-			$SUDO pacman -S tailscale --noconfirm
-			$SUDO systemctl enable --now tailscaled
-			set +x
-			;;
-		pkg)
-			set -x
-			$SUDO pkg install --yes tailscale
-			$SUDO service tailscaled enable
-			$SUDO service tailscaled start
-			set +x
-			;;
-		apk)
-			set -x
-			if ! grep -Eq '^http.*/community$' /etc/apk/repositories; then
-				if type setup-apkrepos >/dev/null; then
-					$SUDO setup-apkrepos -c -1
-				else
-					echo "installing tailscale requires the community repo to be enabled in /etc/apk/repositories"
-					exit 1
-				fi
-			fi
-			$SUDO apk add tailscale
-			$SUDO rc-update add tailscale
-			$SUDO rc-service tailscale start
-			set +x
-			;;
-		xbps)
-			set -x
-			$SUDO xbps-install tailscale -y
-			set +x
-			;;
-		emerge)
-			set -x
-			$SUDO emerge --ask=n net-vpn/tailscale
-			set +x
-			;;
-		appstore)
-			set -x
-			open "https://apps.apple.com/us/app/tailscale/id1475387142"
-			set +x
+		tdnf|zypper|pkg|apk|xbps|emerge|appstore)
+			echo "Unsupported package manager: $PACKAGETYPE"
+			echo "Please bear with us as we add support for more package managers."
+			exit 1
 			;;
 		*)
 			echo "unexpected: unknown package type $PACKAGETYPE"
