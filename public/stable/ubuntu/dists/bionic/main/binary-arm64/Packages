@@ -1,101 +1,101 @@
 Package: foks
-Architecture: arm64
 Version: 0.0.17
-Priority: optional
 Section: utils
-Maintainer: Maxwell Krohn <max@ne43.com>
-Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
+Priority: optional
+Architecture: arm64
 Filename: dists/bionic/main/binary-arm64/foks_0.0.17_arm64.deb
 Size: 7313580
 MD5sum: e9a552c1ed8ae07c254ee069479fa79f
 SHA1: f439d049e73fab94201f38850b21d3e362df65f2
 SHA256: 8cd3beaaaa2ff27c7244abbf7754d0cc2f6e447701374f6d78463fd2fb6c3e77
 SHA512: e9c60cf99ab1946777494a05d009b017703803b93294c3c2ee649aabec50a9470491ef7b17ad43148b446e7a2d6865bb3a64caddb4bfad75b3739fc826f8cd0e
+Maintainer: Maxwell Krohn <max@ne43.com>
+Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
 Description: Access the Federated Open Key Service (FOKS)
  with this single CLI-application. Supplies signup, key management,
  team management, KV-store put-get and also git remote helper.
 
 Package: foks
-Architecture: arm64
 Version: 0.0.18
-Priority: optional
 Section: utils
-Maintainer: Maxwell Krohn <max@ne43.com>
-Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
+Priority: optional
+Architecture: arm64
 Filename: dists/bionic/main/binary-arm64/foks_0.0.18_arm64.deb
 Size: 7320724
 MD5sum: dc3121618c0eac657da944cc8ca9c1c1
 SHA1: 6d001310e53bb50fc3ea55dc2be0c06f81d53ea4
 SHA256: 58dbb540709a3b740a2c95725e8a1791dee4970634edb1b565567e2e57a31603
 SHA512: 0d6fdad4d89ed9de8e5b504c6c688c5d0f1235fd2e453921914688f8d5b755143901970a7d3dc2f7e93eb60eaa9473452ec3f2bf988e8350bbef2f6f0f7bf0f6
+Maintainer: Maxwell Krohn <max@ne43.com>
+Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
 Description: Access the Federated Open Key Service (FOKS)
  with this single CLI-application. Supplies signup, key management,
  team management, KV-store put-get and also git remote helper.
 
 Package: foks
-Architecture: arm64
 Version: 0.0.19
-Priority: optional
 Section: utils
-Maintainer: Maxwell Krohn <max@ne43.com>
-Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
+Priority: optional
+Architecture: arm64
 Filename: dists/bionic/main/binary-arm64/foks_0.0.19_arm64.deb
 Size: 7357260
 MD5sum: 097898a5025e496c46b9f108553b24f1
 SHA1: 8f3ba67991eeaa1df4a5f51f5678af263d57a616
 SHA256: a90a574e0fc597225a90f745c0e87dbeef3e25008c9953c83b2c9f703fee2e70
 SHA512: dcee32808516faceea7c6b6f61503fd2cd29256b6946d36b8474059897890e207d62357163e503ee692875cf52664d0434290e16a3baf11287b1477d2784cabb
+Maintainer: Maxwell Krohn <max@ne43.com>
+Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
 Description: Access the Federated Open Key Service (FOKS)
  with this single CLI-application. Supplies signup, key management,
  team management, KV-store put-get and also git remote helper.
 
 Package: foks
-Architecture: arm64
 Version: 0.0.20
-Priority: optional
 Section: utils
-Maintainer: Maxwell Krohn <max@ne43.com>
-Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
+Priority: optional
+Architecture: arm64
 Filename: dists/bionic/main/binary-arm64/foks_0.0.20_arm64.deb
 Size: 7359960
 MD5sum: aa05b8501c6f3892b912ca440848b22e
 SHA1: 9762f2208bb5ed9ed4f3f4a7136d277a013d178d
 SHA256: c79177545a149beefe98826aff8b0b0233622362304c580a3d50c10ee8635962
 SHA512: d137dfc98275b71e9426a8235b171d4578a4a715b4d106cb37f05eba9239d1b9cd90e2c79be9b440d4f344225cab4065bdedf438d0df2459c95f3d8aa154021d
+Maintainer: Maxwell Krohn <max@ne43.com>
+Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
 Description: Access the Federated Open Key Service (FOKS)
  with this single CLI-application. Supplies signup, key management,
  team management, KV-store put-get and also git remote helper.
 
 Package: foks
-Architecture: arm64
 Version: 0.0.21
-Priority: optional
 Section: utils
-Maintainer: Maxwell Krohn <max@ne43.com>
-Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
+Priority: optional
+Architecture: arm64
 Filename: dists/bionic/main/binary-arm64/foks_0.0.21_arm64.deb
 Size: 7363504
 MD5sum: 352eab0c6b43af712a45943774562699
 SHA1: 6ef8c6456495603d864d1afb0b593aa951e82ba8
 SHA256: 0232b8abe462092981bbceca594e67af40006caa1215887d1e98bcf174971271
 SHA512: 25f6ee83a92c658fb79151f481e029be4d5dbe871a3b5e9fa57b682557f10d90695be635e19703f482351ea00cb90cb167eb1b54840f185a906b9708130420cc
+Maintainer: Maxwell Krohn <max@ne43.com>
+Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
 Description: Access the Federated Open Key Service (FOKS)
  with this single CLI-application. Supplies signup, key management,
  team management, KV-store put-get and also git remote helper.
 
 Package: foks
-Architecture: arm64
 Version: 0.1.0
-Priority: optional
 Section: utils
-Maintainer: Maxwell Krohn <max@ne43.com>
-Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
+Priority: optional
+Architecture: arm64
 Filename: dists/bionic/main/binary-arm64/foks_0.1.0_arm64.deb
 Size: 7399004
 MD5sum: 0467aebe4a6f1f5c62b1d3fe4aa8f77c
 SHA1: eb951b0edab8dda28bdd636e5cbc2e7e9b5de8d8
 SHA256: 35fed64f4f48395ac2ef306465904add30481b14aff48a1811f79b2124a7690d
 SHA512: 4febd7cf36e1183e1b6ae9967541852af564355c7384e52010342d3401f6c8c92a61163db01d98e0a11e001d57bd894371bef2f6b52b4985f8296a94b7b35151
+Maintainer: Maxwell Krohn <max@ne43.com>
+Depends: libpcsclite-dev (>= 1.9.9), libc6 (>= 2.31)
 Description: Access the Federated Open Key Service (FOKS)
  with this single CLI-application. Supplies signup, key management,
  team management, KV-store put-get and also git remote helper.
