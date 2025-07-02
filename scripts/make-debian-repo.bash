@@ -18,6 +18,43 @@ link_to() {
   done
 }
 
+my_apt_ftparchive_one() {
+  local file=$1
+  local dir=$2
+  control=${file}.control
+  ar p ${file} control.tar.xz | tar -xO - control > $control
+  filesz=$(stat -f %z -L "${file}")
+  sha1=$(shasum -a 1 "${file}" | cut -d ' ' -f 1)
+  sha256=$(shasum -a 256 "${file}" | cut -d ' ' -f 1)
+  sha512=$(shasum -a 512 "${file}" | cut -d ' ' -f 1)
+  md5=$(md5 -q "${file}")
+
+  out=${file}.desc
+  head -5 < $control > $out
+  cat <<EOF >>$out
+Filename: ${dir}/${file}
+Size: ${filesz}
+MD5sum: ${md5}
+SHA1: ${sha1}
+SHA256: ${sha256}
+SHA512: ${sha512}
+EOF
+  tail -n +6 < $control >> $out
+  echo >> $out
+  rm $control
+}
+
+my_apt_ftparchive() {(
+  local dir=$1
+  cd "${dir}"
+  files=$(ls -1 *.deb | sort -V)
+  for f in ${files}; do
+    my_apt_ftparchive_one $f $dir
+  done
+  ls -1 *.deb.desc | sort -V | xargs cat
+  rm *.deb.desc 
+)}
+
 do_version_arch() {
   local version=$1
   local arch=$2
@@ -27,20 +64,9 @@ do_version_arch() {
   (cd ${dir} && link_to "${arch}")
 
   # regenerate Packages
-  apt-ftparchive \
-    -o APT::FTPArchive::Index::Compression::gzip=false \
-    -o APT::FTPArchive::Release::Codename="${version}" \
-    -o APT::FTPArchive::Release::Origin="foks" \
-    -o APT::FTPArchive::Release::Label="foks" \
-    -o APT::FTPArchive::Release::Components="main" \
-    -o APT::FTPArchive::Release::Architectures="${all_arches_string}" \
-    -o APT::FTPArchive::Release::Description="FOKS packages (see https://foks.pub)" \
-    packages "dists/${version}/main/binary-${arch}" \
-    > "dists/${version}/main/binary-${arch}/Packages"
+  my_apt_ftparchive "${dir}" > ${dir}/Packages
 
-  gzip -9n -c \
-    "dists/${version}/main/binary-${arch}/Packages" \
-    > "dists/${version}/main/binary-${arch}/Packages.gz"
+  gzip -9n -c "${dir}/Packages" > "${dir}/Packages.gz" 
 }
 
 do_version() {
