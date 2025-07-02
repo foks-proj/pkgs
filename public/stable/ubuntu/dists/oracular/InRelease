@@ -4,46 +4,46 @@ Hash: SHA256
 Architectures: amd64 arm64 all
 Codename: oracular
 Components: main
-Date: Mon, 23 Jun 2025 17:13:44 +0000
+Date: Wed, 02 Jul 2025 18:27:40 +0000
 Description: FOKS packages (see https://foks.pub)
 Label: foks
 Origin: foks
 MD5Sum:
- 24f9431cb3825246ebbda1fa466b2739              180 Release
+ 4648a439bef7e608e9e4b89b197d5573              180 Release
  1f0b9697b44a054ce51865309e02a624              732 main/binary-all/Packages
  d95cefc42ce4c58a1d073078ff522ac3              503 main/binary-all/Packages.gz
- eae9b3695e3dd9ee0f0139ea14305887             3725 main/binary-amd64/Packages
- 743e7c7b00fbe4bacf13619eaab9669f             1293 main/binary-amd64/Packages.gz
- 6304b04d396242320b810ee3073c2857             3725 main/binary-arm64/Packages
- 9b4cff9aa521c4e3b4e737efc58c17c3             1296 main/binary-arm64/Packages.gz
+ b9b1fd39a6d670262a580c519e4d87e7             4487 main/binary-amd64/Packages
+ 4301d36a4a23479af083561e44a9a0e8             1529 main/binary-amd64/Packages.gz
+ 743f1e16e5af3dab264eaf2e08d644ad             4487 main/binary-arm64/Packages
+ 5cdef10f052a3fbde1d9e36b7009fff1             1526 main/binary-arm64/Packages.gz
 SHA1:
- 177c96205f5c700311800372e8b283d74094ce8e              180 Release
+ 4c8a18ab47bf45a115e117063ca05c73d07bc6cf              180 Release
  505bee798b001792bc16d7d297926159e1546820              732 main/binary-all/Packages
  1678bff7c63e54ca765d56661906a0a268c9de56              503 main/binary-all/Packages.gz
- 870a379de784eada9084e2480c7c51a953731053             3725 main/binary-amd64/Packages
- 138d331c772937d3452326eb438c06b011697846             1293 main/binary-amd64/Packages.gz
- b9b2339b8a1e7c05a0adcde98cc465d391ef5f45             3725 main/binary-arm64/Packages
- 051c244b6b88a710e711df45cc32089599281b30             1296 main/binary-arm64/Packages.gz
+ e1a6ea74784ea9b291f95b9f2f84373e76e5cce8             4487 main/binary-amd64/Packages
+ 3804a61d7d2b235a08a5cfdadc93efd87b47c1df             1529 main/binary-amd64/Packages.gz
+ 7e5be515d671441b7801662dfe7fef34f68e7f41             4487 main/binary-arm64/Packages
+ ee617e3c373a7a632bfe75056c2eaadbad004bd5             1526 main/binary-arm64/Packages.gz
 SHA256:
- 7681cc5e693f8510bf2d0800e2ecd50cc4c37f8159b9602c972ce853f965a259              180 Release
+ 6c98757ac25e457ee473f632330633e386d55d5112ab72db2612612aa14ac546              180 Release
  b50bfc142144b837204363d3af03b24e5d458f45a018f2dab8e542723a5ecefb              732 main/binary-all/Packages
  b14b9ed6d77c9ca9da9df01c2d21b6f4155ed4d61487731c51108f4d6648c7f6              503 main/binary-all/Packages.gz
- f9a6201030abe6842a0de8ab08210e0bf3a357a817f0b80364cb99e2755e56da             3725 main/binary-amd64/Packages
- 2f5ced0710e421a1e36d20b4ae7dd9c99d130cde7a3afc283cccab59ae8f3005             1293 main/binary-amd64/Packages.gz
- 16a7d6a6cea7c810723dd9010d6612858e91b27a2749dc088436c6e2ebd22cc2             3725 main/binary-arm64/Packages
- ef016aa2e18627b45ef9c1886e59880dd6e21d0c6211dd4189498d6045c1f0e9             1296 main/binary-arm64/Packages.gz
+ bdb971575eb84fbfd203d990af1ddf6107219782e18b14c3fd8cf6bf5572b513             4487 main/binary-amd64/Packages
+ 48a2582006bea0ec0f1bd4dfe03ae324c012346b4c7d0beba5a56e211bb10732             1529 main/binary-amd64/Packages.gz
+ b18f23e048e1bf87c3c7563e25004d5e2096dc6ddacd23633c161ba823978ba7             4487 main/binary-arm64/Packages
+ 8c0bdc5bb5e72adc0abc59daccee6f0b5b9c3b3fb84734e7c39cb040d9fd7659             1526 main/binary-arm64/Packages.gz
 SHA512:
- c932a34f120a96420b90ec34aa72a640390d18700cd4bc8ff343484ead2b7a81cd15ae1485bacb821e7a1c741c9b72cdc960e180a7e36c36f4aa44caddc251b3              180 Release
+ 4018d1a55669f1de30c4514061821449527aad7489cc91d671fd55c41d2cb3ed929d2f0ad9fc8d5b1b79cdea7173ab3f9721f431991bbedbfd7dbbe780ba8674              180 Release
  299cb5d3989d47b570280d1a5cbe9aedb7a0a4c9c44b7c44eec58eb5ae88c2c194b49085c5b3493b2d69e2e0246bfbaffb1a73e6cde99f2039b78f235ee33ff5              732 main/binary-all/Packages
  8741797e960ae9f4773118ef22e06fe82f136673cde95554c2a70e8a8677f43c5bf0819475babe53a82f605c15310a5d488ecaefbbe05a66067f7498b09861c4              503 main/binary-all/Packages.gz
- 67c91f3d290f0750ccdda7b190f7583c2b258919d06a382ee9008863bb2aa5ed84ebab5a460046854bb5076650b20079c2b3285711b5b777a1ecc71f14c596a7             3725 main/binary-amd64/Packages
- 401fc145c6627447f3c808986acbfa38c492f19773d91f1d8bd9c4f51c2e7723d6bafab5265599683f452f53916647e574e2493cfdd6d71aab780180e4fd8fc5             1293 main/binary-amd64/Packages.gz
- 378ded1d2164e0c88e8b0d393e687cc405ffc1fad9aa450055620d36bb6a17b7ac084531c5b3e8cc15be7530ebb855b7dc71f1cbb0f1025a0dd6f5ace55de1f3             3725 main/binary-arm64/Packages
- 45cadccec07819b9a545840538f95e946b250d8e9854dbefffe676ad49ee67fee0e055fbd7481e4b6f884032f945cf3bdfd2ea4c98f966779491f255ca53d832             1296 main/binary-arm64/Packages.gz
+ 2704831ee7ced0cde4e2b7e5446f4404ad8a430b53a95ab041a2d195beb32cd6b4087ee52ec7e7f30477c6a628da8c6874ae271fc2c8a3e642e3279861e28a1b             4487 main/binary-amd64/Packages
+ b7b6840b5d6a281d5a53c7b03edc7b3339702a58de9d891dc61773cebc0fa6e33093033733165c23ca52d992f86371175456858c7b94aa398c279c9bda21b087             1529 main/binary-amd64/Packages.gz
+ fcbb7697f22b76d414659784d2dd3fb3b7c88a019c7a7565d1685957edd29abf4b75c9b28dee2390a17b0f17ef6b65fbe8c47b49f07ff5a500cd6b1d3ea7d725             4487 main/binary-arm64/Packages
+ 5d10f857436f64fce2014cae8cc3894437f057db7232117c9a268f291f18b2d718e1ae99908a7c12adb8a99209fbac9e423938cb386fde2a16b5f5c391cae23c             1526 main/binary-arm64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iHUEARYIAB0WIQQNBegDUWw42YSQdXB0qb8P6zg4zAUCaFmLSAAKCRB0qb8P6zg4
-zBkPAP97A3a9dQtieMwiWjHnS8p1h0qY6YMH0whih4hmQi4T0QEA0tv7NZmMbQSe
-TcJXwheW80poB3CzeTgYQvzM7gUpggQ=
-=GUBH
+iHUEARYIAB0WIQQNBegDUWw42YSQdXB0qb8P6zg4zAUCaGV6HAAKCRB0qb8P6zg4
+zOBKAP0QU4FE4TiP6j6q/q97/0jjmi5B+tFIqqPHDpQGlfRpAAEAjKhYHYF1rIsq
+2ETqx/FUApS7izJQjjO4nr2z3M0VFQU=
+=wU/C
 -----END PGP SIGNATURE-----
