@@ -1,12 +1,12 @@
 Architectures: amd64 arm64 all
 Codename: xenial
 Components: main
-Date: Wed, 02 Jul 2025 18:27:43 +0000
+Date: Wed, 02 Jul 2025 18:37:40 +0000
 Description: FOKS packages (see https://foks.pub)
 Label: foks
 Origin: foks
 MD5Sum:
- badd7afc970f4d4319c6e0dba8ac420a              178 Release
+ b8be6c9b8eb2e0c6c48ad886f8f9b3b2              178 Release
  cb14e77d05f016b2532c7f4d2a7267e4              730 main/binary-all/Packages
  243ab4fd46c0f0de465e8fdbc748e796              502 main/binary-all/Packages.gz
  8d9ce60db93781c75cd65d9702a860fe             4456 main/binary-amd64/Packages
@@ -14,7 +14,7 @@ MD5Sum:
  006a11e0b58d01fc8aa8f641def8143c             4456 main/binary-arm64/Packages
  6f1ac7113565503c58235b15c963d123             1481 main/binary-arm64/Packages.gz
 SHA1:
- d15ba96ee657b2f75aa1ade03c5e8b3af9a901c5              178 Release
+ bbf712f7407b99b13a30c74fd93180c1d870d7ad              178 Release
  e58c7c1c640cf0e6a1cb18a5836ebf2590542d91              730 main/binary-all/Packages
  b65f676d18d9a90e1c813607f62954ea5b149aec              502 main/binary-all/Packages.gz
  91bdbeedf0d7c3d887de2716ad5bb58cb43ad525             4456 main/binary-amd64/Packages
@@ -22,7 +22,7 @@ SHA1:
  58829ced8276386b989e19b34da741c1ab5dcaba             4456 main/binary-arm64/Packages
  518b417fd36fba633e9fa6ba3f6fb782946c5e7c             1481 main/binary-arm64/Packages.gz
 SHA256:
- 2d104a86d1ec8f0c88825ec353a67b27a30d1505e8cee47a1e642214081afe89              178 Release
+ 5ed61435cb0447fd8ec301f03ce2f9fc25c59d1dc1d45e978a4076cc2de3f91c              178 Release
  2fbc00119a5e86af677cd73a16d6f15a0d9e124639983bd7680e01c7d12cb95f              730 main/binary-all/Packages
  5a205ac9a9e567dc514ba30849c11f3e2974f9fd3c2494d1584dc12ff43486f0              502 main/binary-all/Packages.gz
  0e5428d16f9b3ad1b8fdcc661b3fa9b09b820a3318c2a6846307e03f1186b4a5             4456 main/binary-amd64/Packages
@@ -30,7 +30,7 @@ SHA256:
  fc9bbc50278245e89358b671ca8055abcb0bf01e33119334a91fed6247796f42             4456 main/binary-arm64/Packages
  78d8b4dcf2ccb6063b3018137778dfd6f081464a78cb2494dff2ce96292e99ef             1481 main/binary-arm64/Packages.gz
 SHA512:
- a67edcab401078113b5a757251fb8a1bbbb61052e7c1cbb397cba2d8c7b8b056d830f789d3bb260c56487ee0c9756035c24aae79914c8c3919473daf166ad593              178 Release
+ 509e6052e1136d4007559143d8c4967ba1b7b35dd9b904577da3a71254f7ba0346cc258058216ce76b30d6ff653ba67f7c8460ff86c9d66c5c6bfcd881be2b82              178 Release
  3e459f60da2e12b1ad7a3bc567e75e67b14596257c262fd003f09983b3f99d1495f7359953e8010c54871581442e03d272ad6ad84867eb06ade200b738fcd995              730 main/binary-all/Packages
  7cbfd1e7ac5b375de93ca20ff6e7c63c178d225ff065a13cddadb3965c542a99af3d87b74f76e34cf985e77bc2baaebf5c29ebff67e0baa7d6dbd33b74d31450              502 main/binary-all/Packages.gz
  996e8abd1e4e1066ed4c7b2e0c850a06a951fd3e2755b3d83027f205eaf74eb56bda2db08fd8b076dba687df6268fc1a77c4767535c523948cc3e8ae2bcca2f0             4456 main/binary-amd64/Packages
