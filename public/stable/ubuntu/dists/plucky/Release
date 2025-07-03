@@ -1,12 +1,12 @@
 Architectures: amd64 arm64 all
 Codename: plucky
 Components: main
-Date: Thu, 03 Jul 2025 10:45:31 +0000
+Date: Thu, 03 Jul 2025 16:03:00 +0000
 Description: FOKS packages (see https://foks.pub)
 Label: foks
 Origin: foks
 MD5Sum:
- bd9e656e7acc5c17e5f7b72ea3d5cfad             178 Release
+ e73dc6b1e4929f4e96bc797a16686642             178 Release
  b6b4a7f1c5190830a50799c7c0d33ce0            1490 main/binary-arm64/Packages.gz
  574eaa881bdec8f7ec91d0b5eb05369b            4456 main/binary-arm64/Packages
  9dc71b31ad18c96d9302da2dbb274adf             502 main/binary-all/Packages.gz
@@ -14,7 +14,7 @@ MD5Sum:
  81a4bb2d5e0dc25d25f2c2747597345c            1495 main/binary-amd64/Packages.gz
  2638c970c02db1efb94c2b9b757a91ab            4456 main/binary-amd64/Packages
 SHA1:
- 56f00cd6f462da74907be8e872304112096c8c0e             178 Release
+ fe878d2d2a37d5658be684c498ca5a637ff42435             178 Release
  99f415915fcc92cebeba2dc435d0f89a666c8db6            1490 main/binary-arm64/Packages.gz
  52668db30069884fb0235af561bb07eb92055410            4456 main/binary-arm64/Packages
  86147955221c0509297abe0a5b439d3e0911b3c1             502 main/binary-all/Packages.gz
@@ -22,7 +22,7 @@ SHA1:
  e77534c8ab40b7fcdd96a0437aa75e98bf25c107            1495 main/binary-amd64/Packages.gz
  7031e4fa45c037c0868bc71cf24f1cd06dbf0de4            4456 main/binary-amd64/Packages
 SHA256:
- 51c22a69ca47b0272b5a1a3ddf9de64b78ceb2203f1188925a9810df403ec443             178 Release
+ 47b3b61094f3a8841422652325d8bdc978fa86f25fb869d1fb10363888abf054             178 Release
  8dd0a3842aa2b3ac0a65bddf3bd25d7b96dad9f1a5f82fe7a5438334b76f9647            1490 main/binary-arm64/Packages.gz
  889a8df928fce7f2a0373f11be12278c1df423bf33c51834a0497d53214d76cc            4456 main/binary-arm64/Packages
  d72fe88a6492fba257cf831d5291f84d0210459bad9c68cbea5fc0c8ff16c970             502 main/binary-all/Packages.gz
@@ -30,7 +30,7 @@ SHA256:
  e50e47cf047102b20ff6f0f04402cb03536d92e6fab0e4891fb2095166e952bf            1495 main/binary-amd64/Packages.gz
  fea419440ef60c9445e7a9bc4e4ece0c1392b376697f9934b27c5ed6f7b49d5e            4456 main/binary-amd64/Packages
 SHA512:
- 990dd9545cdd1626fa9cd58c747fd4607484e19f0fce8ae1b3842b90fb3d26def2e94175d6e4cb46e3cdd07a89b0af2fc4f81e2e7ce1b93f1a801b7fa5a9bcc9             178 Release
+ 0cb0446fc1edfe3ca8db6d6b9b6f7af7077866d0528944d2bbe36529aee0946fe5df6c76c2754fa6948c84160ad53e8c480d604e51e71f5c1064e5990ec174cc             178 Release
  63c67e26ead7d8f2c37a05acffc1b696217d2904064aa10e216532b32f259b0743d3a8481ad8116fda9615dc825b624ae0cd704077ee082199f56e0722970707            1490 main/binary-arm64/Packages.gz
  1795290b7d42da42797a9d0a32c64170cc8871c5a55a339891553e118740536b446e9e1eeec28fdadf15f961aac35a1ebb435f11ab8a7bace95469e15974754c            4456 main/binary-arm64/Packages
  cb20d8c5cd8b40575ae452f9228a0795c19408e154f58b83961e1ca048583556eaca82b3d4de777c895141e9022e0c461fea4a65c54b48b2aba1de963ec7fbe2             502 main/binary-all/Packages.gz

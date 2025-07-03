@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash 
+#!/usr/bin/env bash
 set -euo pipefail
 
 if [ ! -f ".top" ]; then 
@@ -18,15 +18,29 @@ link_to() {
   done
 }
 
-hashup() {
+fsz() {
   local file=$1
-  local -n out=$2
-  filesz=$(stat -f %z -L "${file}")
-  sha1=$(shasum -a 1 "${file}" | cut -d ' ' -f 1)
-  sha256=$(shasum -a 256 "${file}" | cut -d ' ' -f 1)
-  sha512=$(shasum -a 512 "${file}" | cut -d ' ' -f 1)
-  md5=$(md5 -q "${file}")
-  out=(${filesz} ${md5} ${sha1} ${sha256} ${sha512})
+  stat -f %z -L "${file}"
+}
+fsha1() {
+  local file=$1
+  shasum -a 1 "${file}" | cut -d ' ' -f 1
+}
+fsha256() {
+  local file=$1
+  shasum -a 256 "${file}" | cut -d ' ' -f 1
+}
+fsha512() {
+  local file=$1
+  shasum -a 512 "${file}" | cut -d ' ' -f 1
+}
+fmd5() {
+  local file=$1
+  md5 -q "${file}"
+}
+
+printsz() {
+  printf "%16d" "$1"
 }
 
 my_apt_ftparchive_one() {
@@ -34,18 +48,16 @@ my_apt_ftparchive_one() {
   local dir=$2
   control=${file}.control
   ar p ${file} control.tar.xz | tar -xO - control > $control
-  declare -a hashes
-  hashup "${file}" hashes
 
   out=${file}.desc
   head -5 < $control > $out
   cat <<EOF >>$out
 Filename: ${dir}/${file}
-Size: ${hashes[0]}
-MD5sum: ${hashes[1]}
-SHA1: ${hashes[2]}
-SHA256: ${hashes[3]}
-SHA512: ${hashes[4]}
+Size: $(fsz ${file})
+MD5sum: $(fmd5 ${file})
+SHA1: $(fsha1 ${file})
+SHA256: $(fsha256 ${file})
+SHA512: $(fsha512 ${file})
 EOF
   tail -n +6 < $control >> $out
   echo >> $out
@@ -92,26 +104,24 @@ Description: FOKS packages (see https://foks.pub)
 Label: foks
 Origin: foks
 EOF
-  declare -a metadata_hashes 
-  hashup hdr metadata_hashes
 
+  sz=$(fsz hdr)
   echo "MD5Sum:" > md5
-  echo -e " ${metadata_hashes[1]}$(printf "%16d" ${metadata_hashes[0]}) ${out}" >> md5
+  echo " $(fmd5 hdr)$(printsz ${sz}) ${out}" >> md5
   echo "SHA1:" > sha1
-  echo -e " ${metadata_hashes[2]}$(printf "%16d" ${metadata_hashes[0]}) ${out}" >> sha1
+  echo -e " $(fsha1 hdr)$(printsz ${sz}) ${out}" >> sha1
   echo "SHA256:" > sha256
-  echo -e " ${metadata_hashes[3]}$(printf "%16d" ${metadata_hashes[0]}) ${out}" >> sha256
+  echo -e " $(fsha256 hdr)$(printsz ${sz}) ${out}" >> sha256
   echo "SHA512:" > sha512
-  echo -e " ${metadata_hashes[4]}$(printf "%16d" ${metadata_hashes[0]}) ${out}" >> sha512
+  echo -e " $(fsha512 hdr)$(printsz ${sz}) ${out}" >> sha512
 
   find . -type f -regex '.*/Packages.*' -print0 | while IFS= read -r -d '' f; do
-    declare -a hashes
-    hashup "${f}" hashes
-    p=$(echo "${f}" | sed 's#^\./##')
-    echo -e " ${hashes[1]}$(printf "%16d" ${hashes[0]}) ${p}" >> md5
-    echo -e " ${hashes[2]}$(printf "%16d" ${hashes[0]}) ${p}" >> sha1
-    echo -e " ${hashes[3]}$(printf "%16d" ${hashes[0]}) ${p}" >> sha256
-    echo -e " ${hashes[4]}$(printf "%16d" ${hashes[0]}) ${p}" >> sha512
+    sz=$(fsz "${f}")
+    p=$(echo ${f} | sed 's#^./##')
+    echo -e " $(fmd5 "${f}")$(printsz ${sz}) ${p}" >> md5
+    echo -e " $(fsha1 "${f}")$(printsz ${sz}) ${p}" >> sha1
+    echo -e " $(fsha256 "${f}")$(printsz ${sz}) ${p}" >> sha256
+    echo -e " $(fsha512 "${f}")$(printsz ${sz}) ${p}" >> sha512
   done
 
   cat hdr md5 sha1 sha256 sha512 > "${out}"
@@ -130,6 +140,7 @@ do_version() {
   local version=$2
 
   for arch in "${arches[@]}"; do
+    echo "Generating ${os} ${version} ${arch}...."
     do_version_arch "${version}" "${arch}"
   done
 
