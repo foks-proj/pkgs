@@ -18,33 +18,41 @@ link_to() {
   done
 }
 
-my_apt_ftparchive_one() {
+hashup() {
   local file=$1
-  local dir=$2
-  control=${file}.control
-  ar p ${file} control.tar.xz | tar -xO - control > $control
+  local -n out=$2
   filesz=$(stat -f %z -L "${file}")
   sha1=$(shasum -a 1 "${file}" | cut -d ' ' -f 1)
   sha256=$(shasum -a 256 "${file}" | cut -d ' ' -f 1)
   sha512=$(shasum -a 512 "${file}" | cut -d ' ' -f 1)
   md5=$(md5 -q "${file}")
+  out=(${filesz} ${md5} ${sha1} ${sha256} ${sha512})
+}
+
+my_apt_ftparchive_one() {
+  local file=$1
+  local dir=$2
+  control=${file}.control
+  ar p ${file} control.tar.xz | tar -xO - control > $control
+  declare -a hashes
+  hashup "${file}" hashes
 
   out=${file}.desc
   head -5 < $control > $out
   cat <<EOF >>$out
 Filename: ${dir}/${file}
-Size: ${filesz}
-MD5sum: ${md5}
-SHA1: ${sha1}
-SHA256: ${sha256}
-SHA512: ${sha512}
+Size: ${hashes[0]}
+MD5sum: ${hashes[1]}
+SHA1: ${hashes[2]}
+SHA256: ${hashes[3]}
+SHA512: ${hashes[4]}
 EOF
   tail -n +6 < $control >> $out
   echo >> $out
   rm $control
 }
 
-my_apt_ftparchive() {(
+my_apt_ftparchive_packages() {(
   local dir=$1
   cd "${dir}"
   files=$(ls -1 *.deb | sort -V)
@@ -64,10 +72,56 @@ do_version_arch() {
   (cd ${dir} && link_to "${arch}")
 
   # regenerate Packages
-  my_apt_ftparchive "${dir}" > ${dir}/Packages
+  my_apt_ftparchive_packages "${dir}" > ${dir}/Packages
 
   gzip -9n -c "${dir}/Packages" > "${dir}/Packages.gz" 
 }
+
+my_apt_ftparchive_release() {
+  local dir=$1
+  local version=$2
+  cd "${dir}"
+  out=Release
+  date=$(date -u "+%a, %d %b %Y %H:%M:%S +0000")
+  cat <<EOF >hdr
+Archtectures: ${all_arches_string}
+Codename: ${version}
+Components: main
+Date: ${date}
+Description: FOKS packages (see https://foks.pub)
+Label: foks
+Origin: foks
+EOF
+  declare -a metadata_hashes 
+  hashup hdr metadata_hashes
+
+  echo "MD5Sum:" > md5
+  echo -e " ${metadata_hashes[1]}\t${metadata_hashes[0]} ${out}" >> md5
+  echo "SHA1:" > sha1
+  echo -e " ${metadata_hashes[2]}\t${metadata_hashes[0]} ${out}" >> sha1
+  echo "SHA256:" > sha256
+  echo -e " ${metadata_hashes[3]}\t${metadata_hashes[0]} ${out}" >> sha256
+  echo "SHA512:" > sha512
+  echo -e " ${metadata_hashes[4]}\t${metadata_hashes[0]} ${out}" >> sha512
+
+  find . -type f -regex '.*/Packages\(\\.gz\)\?' -print0 | while IFS= read -r -d '' f; do
+    declare -a hashes
+    hashup "${f}" hashes
+    echo -e " ${hashes[1]}\t${hashes[0]} ${f}" >> md5
+    echo -e " ${hashes[2]}\t${hashes[0]} ${f}" >> sha1
+    echo -e " ${hashes[3]}\t${hashes[0]} ${f}" >> sha256
+    echo -e " ${hashes[4]}\t${hashes[0]} ${f}" >> sha512
+  done
+
+  cat hdr md5 sha1 sha256 sha512 > "${out}"
+}
+
+do_version_release() {(
+  local version=$1
+  local dir="dists/${version}"
+  mkdir -p "${dir}"
+  my_apt_ftparchive_release "${dir}" "${version}"
+)}
 
 do_version() {
   local os=$1
@@ -77,16 +131,7 @@ do_version() {
     do_version_arch "${version}" "${arch}"
   done
 
-  apt-ftparchive \
-    -o APT::FTPArchive::Index::Compression::gzip=false \
-    -o APT::FTPArchive::Release::Codename="${version}" \
-    -o APT::FTPArchive::Release::Origin="foks" \
-    -o APT::FTPArchive::Release::Label="foks" \
-    -o APT::FTPArchive::Release::Components="main" \
-    -o APT::FTPArchive::Release::Architectures="${all_arches_string}" \
-    -o APT::FTPArchive::Release::Description="FOKS packages (see https://foks.pub)" \
-    release "dists/${version}" \
-    > "dists/${version}/Release"
+  do_version_release "${version}"
 
   inrel=dists/${version}/InRelease
   [ ! -f "${inrel}" ] || rm "${inrel}"
