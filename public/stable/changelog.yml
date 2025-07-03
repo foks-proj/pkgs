@@ -2,6 +2,19 @@ project: foks
 maintaner: Maxwell Krohn <max@ne43.com>
 
 changelog:
+  - version: 0.1.0
+    urgency: low
+    stable: false
+    date: 2025-07-02 13:00:00 -0400
+    changes:
+      - desc: cli - log rotation for agent logs (not for error, just for output)
+        closes: []
+      - desc: logsend feature for debugging problems
+        closes: ["#119"]
+      - desc: invite codes are optional for some hosts
+        closes: ["#123"]
+      - desc: fix `team change-roles` on closed-membership hosts
+        closes : ["#127"]
   - version: 0.0.21
     urgency: low
     stable: false
