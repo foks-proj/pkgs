@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/opt/homebrew/bin/bash 
 set -euo pipefail
 
 if [ ! -f ".top" ]; then 
@@ -84,7 +84,7 @@ my_apt_ftparchive_release() {
   out=Release
   date=$(date -u "+%a, %d %b %Y %H:%M:%S +0000")
   cat <<EOF >hdr
-Archtectures: ${all_arches_string}
+Architectures: ${all_arches_string}
 Codename: ${version}
 Components: main
 Date: ${date}
@@ -96,24 +96,26 @@ EOF
   hashup hdr metadata_hashes
 
   echo "MD5Sum:" > md5
-  echo -e " ${metadata_hashes[1]}\t${metadata_hashes[0]} ${out}" >> md5
+  echo -e " ${metadata_hashes[1]}$(printf "%16d" ${metadata_hashes[0]}) ${out}" >> md5
   echo "SHA1:" > sha1
-  echo -e " ${metadata_hashes[2]}\t${metadata_hashes[0]} ${out}" >> sha1
+  echo -e " ${metadata_hashes[2]}$(printf "%16d" ${metadata_hashes[0]}) ${out}" >> sha1
   echo "SHA256:" > sha256
-  echo -e " ${metadata_hashes[3]}\t${metadata_hashes[0]} ${out}" >> sha256
+  echo -e " ${metadata_hashes[3]}$(printf "%16d" ${metadata_hashes[0]}) ${out}" >> sha256
   echo "SHA512:" > sha512
-  echo -e " ${metadata_hashes[4]}\t${metadata_hashes[0]} ${out}" >> sha512
+  echo -e " ${metadata_hashes[4]}$(printf "%16d" ${metadata_hashes[0]}) ${out}" >> sha512
 
-  find . -type f -regex '.*/Packages\(\\.gz\)\?' -print0 | while IFS= read -r -d '' f; do
+  find . -type f -regex '.*/Packages.*' -print0 | while IFS= read -r -d '' f; do
     declare -a hashes
     hashup "${f}" hashes
-    echo -e " ${hashes[1]}\t${hashes[0]} ${f}" >> md5
-    echo -e " ${hashes[2]}\t${hashes[0]} ${f}" >> sha1
-    echo -e " ${hashes[3]}\t${hashes[0]} ${f}" >> sha256
-    echo -e " ${hashes[4]}\t${hashes[0]} ${f}" >> sha512
+    p=$(echo "${f}" | sed 's#^\./##')
+    echo -e " ${hashes[1]}$(printf "%16d" ${hashes[0]}) ${p}" >> md5
+    echo -e " ${hashes[2]}$(printf "%16d" ${hashes[0]}) ${p}" >> sha1
+    echo -e " ${hashes[3]}$(printf "%16d" ${hashes[0]}) ${p}" >> sha256
+    echo -e " ${hashes[4]}$(printf "%16d" ${hashes[0]}) ${p}" >> sha512
   done
 
   cat hdr md5 sha1 sha256 sha512 > "${out}"
+  rm hdr md5 sha1 sha256 sha512
 }
 
 do_version_release() {(
