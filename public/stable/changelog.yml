@@ -2,6 +2,23 @@ project: foks
 maintaner: Maxwell Krohn <max@ne43.com>
 
 changelog:
+  - version: 0.1.2
+    urgency: low
+    stable: true
+    date: 2025-08-11 12:00:00 -0400
+    changes:
+      - desc: improve error conditions and messages w/r/t `kv mkdir root`
+        closes: ["#163"]
+      - desc: add CLI command `foks key remove` 
+        closes: ["#167"]
+      - desc: change yubikey serial number to be displayed in decimal rather than hex
+        closes: ["#173"]
+      - desc: add bot-token keys, which are like backup keys, but special-cased for bots
+        closes: ["#172"]
+      - desc: wrap backup keys on narrow terminals in `key new`
+        closes: ["#148"]
+      - desc: KV REST server support via `foks kv rest {start|stop}`
+        closes: ["#180"]
   - version: 0.1.1
     urgency: low
     stable: true
