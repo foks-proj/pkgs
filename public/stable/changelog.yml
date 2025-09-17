@@ -2,6 +2,27 @@ project: foks
 maintaner: Maxwell Krohn <max@ne43.com>
 
 changelog:
+  - version: 0.1.3
+    urgency: low
+    stable: true
+    date: 2025-09-17 12:00:00 -0400
+    changes:
+      - desc: improve directory listing in KV rest to include file type of entries
+        closes: ["#190"]
+      - desc: cleaner flags for KV rest stop/start commands
+        closes: ["#191"] 
+      - desc: improve HTTP error responses for KV store
+        closes: ["#196"]
+      - desc: fix git checkout with no main brain, and also non-standard first pushed branch
+        closes: ["#187"]
+      - desc: get/set default git branch
+        closes: ["#204"]  
+      - desc: add --all-teams feature to git ls
+        closes: ["#197"]
+      - desc: clean up key switch and key remove to display device names better
+        closes: ["#193"]
+      - desc: simplify args to key switch and removal (no find via key "genus" or role)
+        closes: ["#208"]
   - version: 0.1.2
     urgency: low
     stable: true
