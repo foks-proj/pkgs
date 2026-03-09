@@ -185,3 +185,20 @@ Description: Access the Federated Open Key Service (FOKS)
  with this single CLI-application. Supplies signup, key management,
  team management, KV-store put-get and also git remote helper.
 
+Package: foks
+Version: 0.1.6
+Section: utils
+Priority: optional
+Architecture: arm64
+Filename: dists/focal/main/binary-arm64/foks_0.1.6_arm64.deb
+Size: 7769876
+MD5sum: 0c63826374a7cedee1476b1a57e520f7
+SHA1: 838ddbcc4bfd409648c70707e58f9c3ebda2b677
+SHA256: ae35a11995c8ea4b32af84d0af21a9fb69f4ae4c7de1bd8077aff293def1819f
+SHA512: 41c35db2c290504d627e1ee6dad7e5e3946dae855e94d19af4dda5f7f59e242fc8f10a7ff5101f85194924ac13ee671069d8da3a0b11bd56174d377e71295db4
+Maintainer: Maxwell Krohn <max@ne43.com>
+Depends: libpcsclite-dev (>= 1.9.5), libc6 (>= 2.31)
+Description: Access the Federated Open Key Service (FOKS)
+ with this single CLI-application. Supplies signup, key management,
+ team management, KV-store put-get and also git remote helper.
+
