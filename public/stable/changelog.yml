@@ -2,6 +2,23 @@ project: foks
 maintaner: Maxwell Krohn <max@ne43.com>
 
 changelog:
+  - version: 0.1.6
+    urgency: low
+    stable: true
+    date: 2026-03-09 17:00:00 -0500
+    changes:
+      - desc: fix autocert refresh intervals to use what LE sends backout
+        closes: ["#225"]
+      - desc: Fix bug in revoking bot-token keys
+        closes: ["#231"]
+      - desc: Improve log rotation on `standup` 
+        closes: ["#228"]
+      - desc: MCP interface for KV
+        closes : []
+      - desc: Claude security audit; 2 highs, and 1 medium; all server-side
+        closes : []
+      - desc: MCP interface for teams
+        closes : ["#238"]
   - version: 0.1.5
     urgency: low
     stable: true
