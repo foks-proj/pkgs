@@ -2,6 +2,23 @@ project: foks
 maintaner: Maxwell Krohn <max@ne43.com>
 
 changelog:
+  - version: 0.1.8
+    urgency: low
+    stable: true
+    date: 2026-05-12 12:00:00 -0500
+    changes:
+      - desc: add -v flag to 'foks key list' to show key IDs
+        closes: ["#247"]
+      - desc: add 'foks key hide' to hide/unhide local profiles
+        closes: ["#247"]
+      - desc: add --hidden flag to 'foks key list' to show hidden profiles
+        closes: ["#247"]
+      - desc: warn on git privacy gotcha
+        closes: ["#253"]
+      - desc: better error message for bot token locked case in `foks key list`
+        closes: ["#263"] 
+      - desc: wait for second in 'foks ctl start --wait'
+        closes: ["#262"]
   - version: 0.1.7
     urgency: low
     stable: true
